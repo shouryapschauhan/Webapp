@@ -15,9 +15,6 @@ func main() {
 	// set up an app config
 	app := application{}
 
-	//get application routes
-	mux := app.routes()
-
 	//get a session manager
 	app.Session = getSession()
 
@@ -25,5 +22,5 @@ func main() {
 	log.Println("Starting server on port 8080...")
 
 	//start the server
-	log.Fatal(http.ListenAndServe(":8080", mux))
+	log.Fatal(http.ListenAndServe(":8080", app.routes()))
 }
