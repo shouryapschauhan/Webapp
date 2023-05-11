@@ -88,9 +88,11 @@ func Test_App_renderWithBadTemplate(t *testing.T) {
 	rr := httptest.NewRecorder()
 
 	err := app.render(rr, req, "bad.page.gohtml", &TemplateData{})
-	if err == nil{
+	if err == nil {
 		t.Error("Expected error from bad html template but didn't get one")
 	}
+
+	pathToTemplates = "./../../templates/"
 }
 
 func getCtx(req *http.Request) context.Context {
